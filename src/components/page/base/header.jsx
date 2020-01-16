@@ -22,7 +22,6 @@ const Header = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
       <Navbar color="dark" dark expand="md">
         
           <Link className="navbar-brand" to="/">Rev Store</Link>
@@ -69,7 +68,6 @@ const Header = (props) => {
             }
         </Collapse>
       </Navbar>
-    </div>
   );
 }
 

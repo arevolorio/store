@@ -11,7 +11,7 @@ import Header from './components/page/base/header';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { auth } from './firebase/firebase.util';
+import { auth, createUserProfileDocument } from './firebase/firebase.util';
 
 class App extends React.Component {
   
@@ -25,9 +25,21 @@ class App extends React.Component {
   unsubcribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubcribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
-      console.log(this.state.currentUser);
+    this.unsubcribeFromAuth = auth.onAuthStateChanged(async user => {
+      
+      const userRef = await createUserProfileDocument(user);
+      if (userRef) {
+          userRef.onSnapshot(snapshot => {
+            this.setState(
+              { currentUser: {
+                id: snapshot.id,
+                ...snapshot.data()
+              } 
+            });
+        });
+      } else{
+        this.setState({currentUser: null});
+      }
     });
   }
 
