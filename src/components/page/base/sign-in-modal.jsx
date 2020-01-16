@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { signInWithGoogle } from '../../../firebase/firebase.util';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 const SignInModal = (props) => {
     const {
       buttonLabel,
       className
     } = props;
-  
+    
     const [modal, setModal] = useState(false);
   
     const toggle = () => setModal(!modal);
@@ -34,7 +36,7 @@ const SignInModal = (props) => {
                         </FormGroup>
                     </ModalBody>
                     <ModalFooter>
-                        <Button className="google-sign-in-btn" onClick={signInWithGoogle}>Sign In With <b>Google</b></Button>
+                        <Button className="google-sign-in-btn" onClick={signInWithGoogle}>Sign in with <FontAwesomeIcon icon={faGoogle} /> </Button>
                         <Button color="dark" onClick={toggle}>Sign up</Button>
                         <Button color="secondary" onClick={toggle}>Cancel</Button>
                     </ModalFooter>
