@@ -20,7 +20,7 @@ const SignInModal = (props) => {
             <Link className="nav-link" onClick={toggle} to="">{buttonLabel}</Link>
             <Modal isOpen={modal} toggle={toggle} className={className}>
             <Form>  
-                <ModalHeader toggle={toggle}>Sign Up</ModalHeader>
+                <ModalHeader toggle={toggle}>Sign In</ModalHeader>
                     <ModalBody>
                         <FormGroup row>
                             <Label for="email" sm={2}>Email</Label>
