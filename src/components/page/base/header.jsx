@@ -13,6 +13,7 @@ import {
 
 import { Link } from "react-router-dom";
 import SignInModal from './sign-in-modal';
+import SignUpModal from './sign-up-modal';
 import { auth } from '../../../firebase/firebase.util';
 
 const Header = (props) => {
@@ -59,7 +60,7 @@ const Header = (props) => {
             :
               <Nav navbar>
                 <NavItem>
-                  <Link className="nav-link" to="/about-us">Register</Link>
+                  <SignUpModal buttonLabel="Sign Up"/>
                 </NavItem>
                 <NavItem>
                   <SignInModal buttonLabel="Sign In" />

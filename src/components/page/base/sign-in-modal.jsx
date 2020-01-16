@@ -18,24 +18,24 @@ const SignInModal = (props) => {
             <Link className="nav-link" onClick={toggle} to="">{buttonLabel}</Link>
             <Modal isOpen={modal} toggle={toggle} className={className}>
             <Form>  
-                <ModalHeader toggle={toggle}>Sign In</ModalHeader>
+                <ModalHeader toggle={toggle}>Sign Up</ModalHeader>
                     <ModalBody>
                         <FormGroup row>
-                            <Label for="exampleEmail" sm={2}>Email</Label>
+                            <Label for="email" sm={2}>Email</Label>
                             <Col sm={10}>
-                                <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                                <Input type="email" name="email" id="email" placeholder="with a placeholder" />
                             </Col>
-                            </FormGroup>
+                        </FormGroup>
                         <FormGroup row>
-                            <Label for="examplePassword" sm={2}>Password</Label>
+                            <Label for="password" sm={2}>Password</Label>
                             <Col sm={10}>
-                                <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+                                <Input type="password" name="password" id="password" placeholder="password placeholder" />
                             </Col>
                         </FormGroup>
                     </ModalBody>
                     <ModalFooter>
                         <Button className="google-sign-in-btn" onClick={signInWithGoogle}>Sign In With <b>Google</b></Button>
-                        <Button color="dark" onClick={toggle}>Sign In</Button>
+                        <Button color="dark" onClick={toggle}>Sign up</Button>
                         <Button color="secondary" onClick={toggle}>Cancel</Button>
                     </ModalFooter>
                 </Form>
