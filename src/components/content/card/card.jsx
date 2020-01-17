@@ -3,11 +3,11 @@ import { Button, Card, CardBody, CardText, CardImg } from 'reactstrap';
 import './card.scss';
 import { Link } from 'react-router-dom';
 
-const StoreCard = ({cardBody, title, name, description, imageUrl , link, buttonLabel, price}) => (
+const StoreCard = ({cardBody, title, name, description, imageUrl, imageSize, link, buttonLabel, price}) => (
 
     <Card className="card-item">
         { imageUrl?
-            <CardImg className="card-image" top width="100%" height="80%" src={imageUrl} alt={title} />
+            <CardImg className={"card-image "+ imageSize} top src={imageUrl} alt={title} />
         :
             null
         }
@@ -19,7 +19,7 @@ const StoreCard = ({cardBody, title, name, description, imageUrl , link, buttonL
                     null
                 }
                 { name?
-                    <h1>{name.toUpperCase()}</h1>
+                    <h2>{name.toUpperCase()}</h2>
                 :
                     null
                 }
@@ -44,6 +44,11 @@ const StoreCard = ({cardBody, title, name, description, imageUrl , link, buttonL
             <CardBody className={cardBody}>
                 { title?
                     <h1>{title.toUpperCase()}</h1>
+                :
+                    null
+                }
+                { name?
+                    <h2>{name.toUpperCase()}</h2>
                 :
                     null
                 }

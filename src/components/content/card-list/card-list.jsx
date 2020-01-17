@@ -13,7 +13,7 @@ const CardList = (props) => (
                         <Col xs={props.xs} sm={props.sm} md={props.md} lg={props.lg} xl={props.xl}>
                             <Card 
                                 key={id}
-                                content={props.content}
+                                cardBody={props.cardBody}
                                 {...otherProps} />
                         </Col>
                     ))
@@ -24,6 +24,7 @@ const CardList = (props) => (
                         <Col key={id} xs={props.xs} sm={props.sm} md={props.md} lg={props.lg} xl={props.xl}>
                             <Card 
                                 cardBody={props.cardBody}
+                                imageSize={props.imageSize}
                                 {...otherProps} />
                         </Col>
                     ))

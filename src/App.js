@@ -7,6 +7,7 @@ import Header from './components/page/base/header';
  */
 
  import Home from './components/page/home/home';
+ import Shop from './components/page/shop/shop';
  import About from './components/page/about/about-page';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -91,6 +92,9 @@ class App extends React.Component {
         <Router>
           <Header currentUser={ this.state.currentUser } productCategories={this.state.productCategories} />
           <Switch>
+            <Route path="/shop">
+              <Shop />
+            </Route>
             <Route path="/about">
               <About />
             </Route>

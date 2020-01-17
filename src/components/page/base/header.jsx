@@ -30,9 +30,9 @@ const Header = (props) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Products
-                </DropdownToggle>
+                <Link className="nav-link" to="/shop">
+                  Shop
+                </Link>
                 <DropdownMenu right>
                   {
                     props.productCategories.map(({id, title}) => (
