@@ -35,7 +35,7 @@ class SignUpModal extends React.Component {
         this.setState(prevState => ({modal: !prevState.modal}));
     }
 
-    handleSubmmit = async event => {
+    handleSubmit = async event => {
         event.preventDefault()
         const { displayName, email, password, confirmPassword } = this.state;
         if (password === confirmPassword) {
@@ -74,7 +74,7 @@ class SignUpModal extends React.Component {
                 return {lastname: value, displayName: prevState.firstname + ' ' + value}
             });
         }
-        this.setState({[name]: value} , () => console.log(this.state), () => console.log(this.state));
+        this.setState({[name]: value});
     }
 
     render() {
@@ -83,7 +83,7 @@ class SignUpModal extends React.Component {
             <div>
                 <Link className="nav-link" onClick={this.toggle} to="">Sign Up</Link>
                 <Modal isOpen={modal} toggle={this.toggle}>
-                <Form onSubmit={this.handleSubmmit}>  
+                <Form onSubmit={this.handleSubmit}>  
                     <ModalHeader toggle={this.toggle}>Sign Up</ModalHeader>
                         <ModalBody>
                             <FormGroup row>
@@ -121,7 +121,7 @@ class SignUpModal extends React.Component {
                             </FormText>
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="dark" type="submit">Sign In</Button>
+                            <Button color="dark" type="submit">Sign Up</Button>
                             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                         </ModalFooter>
                     </Form>

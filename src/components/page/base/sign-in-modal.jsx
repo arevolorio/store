@@ -37,7 +37,7 @@ const SignInModal = (props) => {
                     </ModalBody>
                     <ModalFooter>
                         <Button className="google-sign-in-btn" onClick={signInWithGoogle}>Sign in with <FontAwesomeIcon icon={faGoogle} /> </Button>
-                        <Button color="dark" onClick={toggle}>Sign up</Button>
+                        <Button color="dark" onClick={toggle}>Sign In</Button>
                         <Button color="secondary" onClick={toggle}>Cancel</Button>
                     </ModalFooter>
                 </Form>
