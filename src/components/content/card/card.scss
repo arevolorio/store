@@ -1,0 +1,42 @@
+.card-item {
+  border: none !important;
+    &:hover {
+        cursor: pointer;
+        h1, p {
+          color:#ffffff;
+        }
+        a {
+          color: #ffffff;
+          text-decoration: none;
+        }
+        & .card-image {
+          transform: scale(1.1);
+          transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+        }
+        & .product {
+          font-size: large;
+          font-weight: bold;
+          color : #ffffff!important;
+        }
+      }
+  h1, p{
+    color:#000000;
+  }
+  p.card-text {
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+  .standard {
+    & img{
+      max-height: 220px;
+      max-width: 400px;
+    }
+  }
+  .product {
+    position: relative;
+    padding-top: inherit;
+    top:-150px;
+  }
+}

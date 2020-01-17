@@ -18,7 +18,45 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      currentUser: null
+      currentUser: null, 
+      sections: [
+        {
+          title: 'womens',
+          imageUrl: 'https://images.assetsdelivery.com/compings_v2/javiindy/javiindy1702/javiindy170200072.jpg',
+          description: "Lorem ipsum dolor sit amet consectetur adipiscing.",
+          size: 'large',
+          id: 4,
+          linkUrl: '/shop/men'
+        },
+        {
+          title: 'mens',
+          imageUrl: 'https://sallauretta.com/wp-content/uploads/male-model-street-stye-1.jpg',
+          description: "Lorem ipsum dolor sit amet consectetur adipiscing.",
+          size: 'large',
+          id: 5,
+          linkUrl: '/shop/woman'
+        }
+      ],
+      productCategories: [
+        {
+          title: 'hats',
+          imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+          id: 1,
+          linkUrl: 'hats'
+        },
+        {
+          title: 'jackets',
+          imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+          id: 2,
+          linkUrl: ''
+        },
+        {
+          title: 'sneakers',
+          imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+          id: 3,
+          linkUrl: ''
+        }
+      ]
     };
   }
 
@@ -51,13 +89,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Header currentUser={ this.state.currentUser } />
+          <Header currentUser={ this.state.currentUser } productCategories={this.state.productCategories} />
           <Switch>
             <Route path="/about">
               <About />
             </Route>
             <Route exact path="/">
-              <Home />
+              <Home sections={this.state.sections}/>
             </Route>
           </Switch>
         </Router>
