@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import SignInModal from './sign-in-modal';
 import SignUpModal from './sign-up-modal';
 import { auth } from '../../../firebase/firebase.util';
+import { connect } from 'react-redux';
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,14 +34,6 @@ const Header = (props) => {
                 <Link className="nav-link" to="/shop">
                   Shop
                 </Link>
-                <DropdownMenu right>
-                  {
-                    props.productCategories.map(({id, title}) => (
-                        <DropdownItem key={id}> { title.toUpperCase() } </DropdownItem>
-                      )
-                    )
-                  }
-                </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
                 <Link className="nav-link" to="/about">About Us</Link>
@@ -74,5 +67,8 @@ const Header = (props) => {
       </Navbar>
   );
 }
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
 
-export default Header;
+export default connect(mapStateToProps)(Header);

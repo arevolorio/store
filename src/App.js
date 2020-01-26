@@ -1,5 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './redux/user/user.actions'
+
 import './App.css';
+
 import Header from './components/page/base/header';
 
 /**
@@ -19,7 +23,6 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      currentUser: null, 
       sections: [
         {
           title: 'womens',
@@ -64,20 +67,19 @@ class App extends React.Component {
   unsubcribeFromAuth = null;
 
   componentDidMount() {
+    const {setCurrentUser} = this.props;
     this.unsubcribeFromAuth = auth.onAuthStateChanged(async user => {
       
       const userRef = await createUserProfileDocument(user);
       if (userRef) {
-          userRef.onSnapshot(snapshot => {
-            this.setState(
-              { currentUser: {
-                id: snapshot.id,
-                ...snapshot.data()
-              } 
-            });
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          });
         });
       } else{
-        this.setState({currentUser: null});
+        setCurrentUser(null);
       }
     });
   }
@@ -90,7 +92,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Header currentUser={ this.state.currentUser } productCategories={this.state.productCategories} />
+          <Header/>
           <Switch>
             <Route path="/shop">
               <Shop />
@@ -108,4 +110,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(App);

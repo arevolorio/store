@@ -35,7 +35,6 @@ class SignInModal extends React.Component {
     handleSubmit = async event => {
         event.preventDefault()
         const { email, password } = this.state;
-        console.log(this.state);
         try {
             await auth.signInWithEmailAndPassword(email, password);
             this.setState({ email: '', password: '' });
@@ -48,7 +47,7 @@ class SignInModal extends React.Component {
     handleChange = event => {
         this.setState({errorMessage: ""});
         const { name, value } = event.target;
-        this.setState({ [name]: value }, () => console.log(this.state));
+        this.setState({ [name]: value }, () => console.log());
     };
 
     render () {
